@@ -6,3 +6,4 @@ dotenv
 streamlit
 tiktoken
 faiss-cpu
+streamlit-extras

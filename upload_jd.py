@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import AzureOpenAIEmbeddings
 from langchain.vectorstores import FAISS
+from streamlit_extras.switch_page_button import switch_page
 
 load_dotenv()
 
@@ -48,4 +49,4 @@ if st.button("Process JD"):
 
 # Check if jd_vectors stored in session state
 if "jd_vectors" in st.session_state:
-    st.page_link(r"C:\Users\Devansh\Desktop\DS_Projects\Resume_ranker\pages\upload_resume.py",label="Next page for Resume upload")
+    st.page_link("pages/upload_resume.py", label="Next page: Upload Resumes")
