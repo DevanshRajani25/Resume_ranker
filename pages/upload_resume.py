@@ -73,13 +73,12 @@ else:
                             # Create vector store for resume chunks
                             res_vectors = FAISS.from_texts(res_chunks, embedding_model)
 
-                            # Find similar chunks between JD and resume
-                            # Use the first chunk of resume as query against JD vectors
+                            # Compare resume chunks with jd vectors
                             top_matches = st.session_state.jd_vectors.similarity_search_with_score(
                                 res_chunks[0], k=min(5, len(res_chunks))
                             )
 
-                            # Calculate average similarity score (lower score = higher similarity in FAISS)
+                            # Calculate average similarity score 
                             if top_matches:
                                 avg_score = sum([score for _, score in top_matches]) / len(top_matches)
                                 resume_scores.append((res.name, avg_score, res_text[:200] + "..."))
@@ -99,13 +98,12 @@ else:
                         st.write("### 📊 Resume Rankings")
                         st.write("*Lower score indicates better match with Job Description*")
 
-                        # Display rankings in a more structured way
+                        # Display rankings 
                         for idx, (filename, score, preview) in enumerate(ranked_resumes, 1):
                             with st.expander(f"#{idx} - {filename} (Score: {score:.4f})"):
                                 st.write("**Preview:**")
                                 st.write(preview)
                                 
-                                # Color coding based on score
                                 if score < 0.5:
                                     st.success("🟢 Excellent Match")
                                 elif score < 0.7:
