@@ -1,0 +1,15 @@
+Upload JD PDF file via Streamlit
+        |
+Extract content of JD [via PyPDF]
+        |
+Chunks [via RecursiveCharacterTextSplitter] & Embeddings of JD file [via OpenAIEmbedding model]
+        |
+after processing upload multiple Resume PDF files via Streamlit
+        |
+Extract content of Resumes [via PyPDF]
+        |
+Chunks [via RecursiveCharacterTextSplitter] & Embeddings of Resumes files [via OpenAIEmbedding model]
+        |
+Use LLM model to get score wise rank list 
+        |
+Give download button in Streamlit to download list 
