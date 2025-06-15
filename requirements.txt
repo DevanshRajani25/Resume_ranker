@@ -3,3 +3,6 @@ langchain_community
 openai
 PyPDF2
 dotenv
+streamlit
+tiktoken
+faiss-cpu
